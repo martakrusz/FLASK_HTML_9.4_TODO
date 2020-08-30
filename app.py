@@ -5,8 +5,8 @@ from flask import make_response
 from flask import request
 
 
-app = Flask(__name__)
-app.config["SECRET_KEY"] = "nininini"
+app = Flask(__name__, instance_relative_config=True)
+app.config.from_pyfile('marta_config.cfg', silent=True)
 
 
 @app.route("/api/v1/todos/", methods=["GET"])
